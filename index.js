@@ -1822,4 +1822,73 @@ console.log(shortCut('hello'))
 console.log(shortCut('how are you today?'))
 
 
+
+// find max word by alphabetical numeric
+const high = function (x) {
+    const arrayStr = x.toLowerCase().split(' ')
+    let maxScore = 0
+    let maxWord = ''
+
+    for (const word of arrayStr) {
+        let score = 0
+        for (let i = 0; i < word.length; i++) {
+            score += word.charCodeAt(i) - 'a'.charCodeAt(0) + 1
+        }
+        if (score > maxScore) {
+            maxScore = score
+            maxWord = word
+        }
+    }
+
+    return maxWord
+}
+
+console.log(high('man i need a taxi up to ubud'))
+
+
+// find average
+const findAverage = (nums) =>
+    nums.reduce((total, cur) => total + cur, 0) / nums.length
+
+console.log(findAverage([1, 3, 5, 7]))
+
+
+
+const sunday = [6737, 7244],
+    monday = [9175, 7883],
+    tuesday = [8646, 6945],
+    wednesday = [6353, 9605],
+    thursday = [6149, 6439],
+    friday = [5000, 5642],
+    saturday = [5448, 8041]
+
+var stairs = [sunday, monday, tuesday, wednesday, thursday, friday, saturday]
+// function stairsIn20(s) {
+//     let sum = 0
+//     for (const stair of s) sum += stair.reduce((total, acc) => total + acc, 0)
+//     return sum * 20
+// }
+
+const stairIs = (s) =>
+    s.reduce((t, n) => t + n.reduce((a, c) => a + c, 0), 0) * 20
+
+console.log(stairIs(stairs))
+
+
+const sortArray = (array) => {
+    const oddNums = array.filter((num) => num % 2 !== 0).sort((a, b) => a - b)
+    return array.map((num) => (num % 2 !== 0 ? oddNums.shift() : num))
+}
+
+console.log(sortArray([5, 3, 2, 8, 1, 4])) // result [1, 3, 2, 8, 5, 4]
+
+
 */
+function remove(string) {
+    return string.replace(/!+$/, '')
+}
+
+console.log(remove('Hi!'))
+console.log(remove('Hi!!!'))
+console.log(remove('!Hi'))
+console.log(remove('!Hi!'))
