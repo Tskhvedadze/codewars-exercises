@@ -1883,7 +1883,6 @@ const sortArray = (array) => {
 console.log(sortArray([5, 3, 2, 8, 1, 4])) // result [1, 3, 2, 8, 5, 4]
 
 
-*/
 function remove(string) {
     return string.replace(/!+$/, '')
 }
@@ -1892,3 +1891,60 @@ console.log(remove('Hi!'))
 console.log(remove('Hi!!!'))
 console.log(remove('!Hi'))
 console.log(remove('!Hi!'))
+
+
+
+const getEvenNumbers = (numbersArray) =>
+    numbersArray.filter((num) => !(num % 2))
+
+console.log(
+    getEvenNumbers([30, 82, 55, 82, 60, 94, 32, 60, 55, 0, 70, 8, 90, 23, 46]),
+)
+
+
+// sum array element without highest and lowest element
+
+const sumArray = (array) => {
+    let max = array[0]
+    let min = array[0]
+
+    for (let i = 0; i < array.length; i++) {
+        ;(max < array[i] && (max = array[i])) ||
+            (min > array[i] && (min = array[i]))
+    }
+    array.splice(array.indexOf(max), 1)
+    array.splice(array.indexOf(min), 1)
+
+    return array.reduce((total, curr) => total + curr, 0)
+}
+
+console.log(sumArray([6, 2, 1, 8, 10]))
+
+
+// a * (b + c)
+// a * b * c
+// a + b * c
+// (a + b) * c
+
+function expressionMatter(a, b, c) {
+    let one = a * (b + c),
+        two = a * b * c,
+        three = a + b * c,
+        four = (a + b) * c,
+        five = a + b + c
+
+    const result = [one, two, three, four, five]
+        .sort((a, b) => a - b)
+        .slice(-1)
+        .join()
+    return Number(result)
+}
+
+console.log(expressionMatter(2, 1, 2))
+console.log(expressionMatter(6, 7, 1))
+console.log(expressionMatter(3, 5, 7))
+console.log(expressionMatter(10, 5, 6))
+console.log(expressionMatter(1, 1, 1))
+
+
+*/
