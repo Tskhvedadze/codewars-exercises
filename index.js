@@ -1947,4 +1947,46 @@ console.log(expressionMatter(10, 5, 6))
 console.log(expressionMatter(1, 1, 1))
 
 
+
+// sum od difference
+const sumOfDifferences = (arr) => {
+    const des = arr.sort((a, b) => b - a).map((item) => -item)
+    let sum = 0
+
+    for (let i = 0; i < des.length - 1; i++) {
+        sum += des[i] - des[i + 1]
+    }
+
+    return Math.abs(sum)
+}
+
+console.log(sumOfDifferences([1, 2, 10]))
+console.log(sumOfDifferences([-17, 17]))
+// console.log(sumOfDifferences([]))
+
+
+function warnTheSheep(queue) {
+    let text = ''
+    let index
+    if (queue.length === 1 || queue.length === 0)
+        return 'Pls go away and stop eating my sheep'
+    if (queue.length > 1) {
+        for (let i = 0; i < queue.length; i++) {
+            if (queue[i] === 'wolf') index = i + 1
+            let position = queue.length - index
+            if (position > 0) {
+                text = `Oi! Sheep number ${position}! You are about to be eaten by a wolf!`
+            } else {
+                text = 'Pls go away and stop eating my sheep'
+            }
+        }
+    }
+    return text
+}
+
+//prettier-ignore
+console.log(warnTheSheep(["sheep", "sheep", "sheep", "sheep", "sheep", "wolf", "sheep", "sheep"])); //"Oi! Sheep number 2! You are about to be eaten by a wolf!"
+console.log(warnTheSheep(['sheep', 'sheep', 'wolf'])) //"Pls go away and stop eating my sheep"
+console.log(warnTheSheep(['wolf'])) //"Pls go away and stop eating my sheep"
+
 */
