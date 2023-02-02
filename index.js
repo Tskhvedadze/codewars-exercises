@@ -1989,4 +1989,38 @@ console.log(warnTheSheep(["sheep", "sheep", "sheep", "sheep", "sheep", "wolf", "
 console.log(warnTheSheep(['sheep', 'sheep', 'wolf'])) //"Pls go away and stop eating my sheep"
 console.log(warnTheSheep(['wolf'])) //"Pls go away and stop eating my sheep"
 
+Take a list of ages when each of your great-grandparent died.
+Multiply each number by itself.
+Add them all together.
+Take the square root of the result.
+Divide by two
+
+function predictAge(...ages) {
+    return Math.floor(
+        ages.map((item) => item ** 2).reduce((total, cur) => total + cur, 0) **
+            (1 / 2) /
+            2,
+    )
+}
+
+console.log(predictAge(65, 60, 75, 55, 60, 63, 64, 45))
+
+function sumOfMinimums(arr) {
+    const minValues = []
+    for (let [_, num] of arr.entries()) {
+        minValues.push(num.sort((a, b) => a - b)[0])
+    }
+    return minValues.reduce((t, c) => t + c, 0)
+}
+
+console.log(
+    sumOfMinimums([
+        [11, 12, 14, 54],
+        [67, 89, 90, 56],
+        [7, 9, 4, 3],
+        [9, 8, 6, 7],
+    ]),
+)
+
+
 */
