@@ -2022,5 +2022,60 @@ console.log(
     ]),
 )
 
+const noOdds = (values, array = []) =>
+    values.filter((num) => !(num % 2) && array.push(num))
+
+console.log(noOdds([0, 1, 2, 3]))
+
+
+const twoDecimalPlaces = (n) => +n.toFixed(2)
+
+console.log(twoDecimalPlaces(4.659725356))
+
+const hexToDec = (hexString) => parseInt(hexString, 16)
+
+console.log(hexToDec('a'))
+
+
+const position = (letter) => `Position of alphabet: ${letter.charCodeAt() - 96}`
+
+console.log(position('a'))
+console.log(position('z'))
+console.log(position('e'))
+
+
+// Your message is a string containing space separated words.
+// You need to encrypt each word in the message using the following rules:
+
+// 1) The first letter must be converted to its ASCII code.
+
+// 2) The second letter must be switched with the last letter
+
+// 3) Keepin' it simple: There are no special characters in the input.
+
+const encryptThis = (text) => {
+    const splitText = text.split(' ')
+    let encryptedText = ''
+
+    for (let word of splitText) {
+        const charCode = word[0].charCodeAt()
+        if (word.length === 1) {
+            encryptedText += `${charCode} `
+        } else if (word.length === 2) {
+            encryptedText += `${charCode}${word[1]} `
+        } else {
+            encryptedText += `${charCode}${word[word.length - 1]}${word.slice(
+                2,
+                word.length - 1,
+            )}${word[1]} `
+        }
+    }
+
+    return encryptedText.trim()
+}
+
+console.log(encryptThis('A wise old owl lived in an oak')) // "65 119esi 111dl 111lw 108dvei 105n 97n 111ka"
+console.log(encryptThis('The more he saw the less he spoke')) // "84eh 109ero 104e 115wa 116eh 108sse 104e 115eokp"
+
 
 */
