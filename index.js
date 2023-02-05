@@ -2078,4 +2078,43 @@ console.log(encryptThis('A wise old owl lived in an oak')) // "65 119esi 111dl 1
 console.log(encryptThis('The more he saw the less he spoke')) // "84eh 109ero 104e 115wa 116eh 108sse 104e 115eokp"
 
 
+const evenNumbers = (array, number) => {
+    const result = array.filter((n) => n % 2 === 0)
+    return result.slice(result.length - number)
+}
+
+console.log(evenNumbers([1, 2, 3, 4, 5, 6, 7, 8, 9], 3)) //[4, 6, 8]
+console.log(evenNumbers([-22, 5, 3, 11, 26, -6, -7, -8, -9, -8, 26], 2)) //[-8, 26]
+console.log(evenNumbers([6, -25, 3, 7, 5, 5, 7, -3, 23], 1))
+
+const factorial = (n) => {
+    let multiply = 1
+    if (n > 0) {
+        for (let i = n; i > 0; i--) multiply *= i
+        return multiply
+    }
+}
+
+// console.log(factorial(0))
+// console.log(factorial(2))
+console.log(factorial(-3))
+console.log(factorial(3))
+// console.log(factorial(4))
+// console.log(factorial(5))
+
+
+
+const largestPairSum = (numbers) => {
+    let max1 = Math.max(...numbers)
+
+    numbers.splice(numbers.indexOf(max1), 1)
+
+    let max2 = Math.max(...numbers)
+
+    return max1 + max2
+}
+
+// console.log(largestPairSum([10, 14, 2, 23, 19]))
+console.log(largestPairSum([-100, -29, -24, -19, 19]))
+
 */
