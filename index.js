@@ -2117,4 +2117,63 @@ const largestPairSum = (numbers) => {
 // console.log(largestPairSum([10, 14, 2, 23, 19]))
 console.log(largestPairSum([-100, -29, -24, -19, 19]))
 
+
+function pipeFix(numbers) {
+    const fixed = []
+
+    for (let i = numbers.at(0); i <= numbers.at(-1); i++) fixed.push(i)
+
+    return fixed
+}
+
+console.log(pipeFix([1, 2, 3, 5, 6, 8, 9]))
+// console.log(pipeFix([1, 2, 3, 12]))
+
+
+const counter = (count) => {
+    let result = []
+    let sum = 0
+
+    for (let i = 0; i <= count; i++) {
+        sum += i
+        result.push(i)
+    }
+
+    if (result.length > 1) return `${result.join('+')} = ${sum}`
+    else if (count === 0) return `${count}=${sum}`
+    else if (count < 0) return `${count}<${sum}`
+}
+
+console.log(counter(22))
+console.log(counter(0))
+console.log(counter(-15))
+
+
+
+function gooseFilter(birds) {
+    const geese = [
+        'African',
+        'Roman Tufted',
+        'Toulouse',
+        'Pilgrim',
+        'Steinbacher',
+    ]
+
+    return birds.filter((bird) => !geese.includes(bird))
+}
+
+console.log(
+    gooseFilter([
+        'Mallard',
+        'Hook Bill',
+        'African',
+        'Crested',
+        'Pilgrim',
+        'Toulouse',
+        'Blue Swedish',
+    ]),
+)
+
+
+
 */
