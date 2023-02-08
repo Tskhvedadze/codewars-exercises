@@ -2175,5 +2175,98 @@ console.log(
 )
 
 
+Შექმენით ფუნქცია რომელსაც პარამეტრების სახით გადასცემთ მასივს, და ეს ფუნქცია 
+შეავსებს მასივს 20 ცალი რენდომული რიცხვით. დააბრუნეთ ეს მასივი
+function getArray(array) {
+    for (let i = 0; i < 20; i++) {
+        array.push(Math.round(Math.random() * 20) + 1)
+    }
+
+    return array
+}
+
+console.log(getArray([]))
+
+
+Შექმენით ფუნქცია რომელსაც პარამეტრების სახით გადასცემთ მასივს და რაოდენობას, 
+და ეს ფუნქცია შეავსებს მასივს იმ რაოდენობის რენდომ რიცხვით რაც არგუმენტად გადაეცით. 
+დააბრუნეთ ეს მასივი.
+
+function getArrayOf(arr, count) {
+    for (let i = 0; i < count; i++) {
+        arr.push(Math.round(Math.random() * count))
+    }
+
+    return arr
+}
+
+console.log(getArrayOf([], 29))
+
+
+Შექმენით ფუნქცია რომელსაც პარამეტრების სახით გადასცემთ 20 ცალი 
+რენდომული რიცხვისგან შევსებულ მასივს და ეს ფუნქცია დაბეჭდავს ამ მასივში 
+მოთავსებულ ყველა ლუწ რიცხვს
+const randomArray = []
+
+for (let i = 1; i < 20; i++) {
+    randomArray.push(Math.round(Math.random() * 20))
+}
+
+function getEven(array) {
+    const result = []
+    for (let i = 1; i < array.length; i++) {
+        !(array[i] % 2) && result.push(array[i])
+    }
+
+    return result
+}
+
+console.log(getEven(randomArray))
+
+
+*დაწერეთ ფუნქცია, რომელსაც გადააწვდით მასივს და რიცხვს და ის დაგიბრუნებთ მასივის ინდექსებს, 
+რომლეთა ჯამითაც მიიღება ეს რიცხვი(მაგ: [2,3,6,9,5] და რიცხვი 11. 
+უნდა დააბრუნოს თქვენმა ფუნქციამ 2 და 4.
+
+function twoSumIndex(array, target) {
+    let newArray = []
+
+    for (let i = 0; i < array.length; i++) {
+        let complement = target - array[i]
+        let index = array.indexOf(complement)
+        if (index !== -1 && index !== i) {
+            newArray.push([i, index])
+        }
+    }
+
+    return newArray.flat()
+}
+
+console.log(twoSumIndex([2, 3, 6, 9, 5], 11))
+
+
+let array = [1, 2, 5, 10, 15]
+let n = array.length
+
+function findMissingArray(arr, N) {
+    let i
+    let temp = []
+    for (i = 0; i <= N; i++) {
+        temp[i] = 0
+    }
+
+    for (i = 0; i < N; i++) {
+        temp[arr[i] - 1] = 1
+    }
+
+    let ans = 0
+    for (i = 0; i <= N; i++) {
+        if (temp[i] == 0) ans = i + 1
+    }
+
+    return ans
+}
+
+console.log(findMissingArray(array, n))
 
 */
