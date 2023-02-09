@@ -2269,4 +2269,43 @@ function findMissingArray(arr, N) {
 
 console.log(findMissingArray(array, n))
 
+
+function expandedForm(num) {
+    let numStr = num.toString()
+    let numArr = numStr.split('')
+    let expanded = []
+
+    for (let i = 0; i < numArr.length; i++) {
+        if (numArr[i] !== '0') {
+            expanded.push(numArr[i] + '0'.repeat(numStr.length - i - 1))
+        }
+    }
+
+    return expanded.join(' + ')
+}
+
+console.log(expandedForm(12))
+console.log(expandedForm(42))
+console.log(expandedForm(70304))
+
 */
+
+function vowelIndices(word) {
+    const vowels = ['a', 'e', 'i', 'o', 'u', 'y']
+    const wordArray = word.toLowerCase().split('')
+    const vowelIndex = []
+
+    for (const v of vowels) {
+        for (let i = wordArray.length; i >= 0; i--) {
+            if (wordArray[i] === v) {
+                vowelIndex.push(i + 1)
+            }
+        }
+    }
+
+    return vowelIndex.sort((a, b) => a - b)
+}
+
+// console.log(vowelIndices('apple'))
+// console.log(vowelIndices('super'))
+console.log(vowelIndices('gecBcwtEoCJdemYvLrvDJLIWAB'))
