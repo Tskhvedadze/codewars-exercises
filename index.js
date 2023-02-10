@@ -2288,7 +2288,7 @@ console.log(expandedForm(12))
 console.log(expandedForm(42))
 console.log(expandedForm(70304))
 
-*/
+
 
 function vowelIndices(word) {
     const vowels = ['a', 'e', 'i', 'o', 'u', 'y']
@@ -2309,3 +2309,106 @@ function vowelIndices(word) {
 // console.log(vowelIndices('apple'))
 // console.log(vowelIndices('super'))
 console.log(vowelIndices('gecBcwtEoCJdemYvLrvDJLIWAB'))
+
+
+const findLongest = (array) => {
+    let num = '0'
+    for (let i = 0; i < array.length; i++) {
+        let string = array[i].toString()
+        if (string.length > num.length) {
+            num = string
+        }
+    }
+    return parseInt(num)
+}
+
+console.log(findLongest([9003, 9002, 8, 800]))
+console.log(findLongest([8, 900, 500]))
+
+
+
+// prettier-ignore
+const data1 = [1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,0,1,0,1,0,1,0]
+// prettier-ignore
+const data2 = [1,0,1,0,1,0,1,0,0,0,0,0,1,1,1,1,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1]
+
+function dataReverse(data) {
+    let segmentLength = 8
+    let reversedData = []
+
+    for (let i = 0; i < data.length; i += segmentLength) {
+        let segment = data.slice(i, i + segmentLength)
+        reversedData.push(segment)
+    }
+
+    return reversedData
+        .reverse()
+        .map((item) => item.reverse())
+        .flat()
+
+    // return data.reverse()
+}
+
+console.log(dataReverse(data1))
+
+
+function spEng(sentence) {
+    const toLower = sentence.toLowerCase()
+    let charCode = []
+    let eng = 'english'
+
+    for (let char of toLower) {
+        const charCodes = char.charCodeAt()
+        charCode.push(charCodes)
+    }
+
+    let eng2 = charCode.map((char) => String.fromCharCode(char)).join('')
+
+    return eng2.includes(eng)
+}
+
+console.log(spEng('english'))
+console.log(spEng('egnlish'))
+console.log(spEng('abcnEglishdef'))
+
+
+
+function alphabetWar(fight) {
+    let left = 'Left side wins!',
+        right = 'Right side wins!',
+        other = "Let's fight again!"
+
+    let leftScores = 0
+    let rightScores = 0
+
+    for (const char of fight) {
+        if (char === 'w') {
+            leftScores += 4
+        } else if (char === 'p') {
+            leftScores += 3
+        } else if (char === 'b') {
+            leftScores += 2
+        } else if (char === 's') {
+            leftScores += 1
+        } else if (char === 'm') {
+            rightScores += 4
+        } else if (char === 'q') {
+            rightScores += 3
+        } else if (char === 'd') {
+            rightScores += 2
+        } else if (char === 'z') {
+            rightScores += 1
+        }
+    }
+
+    return leftScores > rightScores
+        ? left
+        : leftScores === rightScores
+        ? other
+        : right
+}
+console.log(alphabetWar('zdqmwpbs'))
+console.log(alphabetWar('z'))
+console.log(alphabetWar('zzzzs'))
+
+*/
