@@ -2411,4 +2411,101 @@ console.log(alphabetWar('zdqmwpbs'))
 console.log(alphabetWar('z'))
 console.log(alphabetWar('zzzzs'))
 
+
+
+function wordsToMarks(string) {
+    let result = 0
+    for (let char of string) {
+        result += char.charCodeAt() - 96
+    }
+
+    return result
+}
+
+console.log(wordsToMarks('attitude'))
+console.log(wordsToMarks('friends'))
+
+
+
+function encode(string) {
+    let replaceStr = ''
+    for (const char of string) {
+        if (char === 'a') replaceStr += 1
+        if (char === 'e') replaceStr += 2
+        if (char === 'i') replaceStr += 3
+        if (char === 'o') replaceStr += 4
+        if (char === 'u') replaceStr += 5
+        else if (
+            char !== 'a' &&
+            char !== 'e' &&
+            char !== 'i' &&
+            char !== 'o' &&
+            char !== 'u'
+        ) {
+            replaceStr += char
+        }
+    }
+
+    return replaceStr
+}
+
+function decode(string) {
+    let replace = ''
+    for (const char of string) {
+        if (char === '1') replace += 'a'
+        if (char === '2') replace += 'e'
+        if (char === '3') replace += 'i'
+        if (char === '4') replace += 'o'
+        if (char === '5') replace += 'u'
+        else if (
+            char !== '1' &&
+            char !== '2' &&
+            char !== '3' &&
+            char !== '4' &&
+            char !== '5'
+        ) {
+            replace += char
+        }
+    }
+
+    return replace
+}
+
+console.log(encode('hello'))
+console.log(decode('h2ll4'))
+
+
+
+
+function meeting(s) {
+    const strToArray = s.toUpperCase().split(';')
+    const reversedNames = []
+    let result = ''
+
+    for (let name of strToArray) {
+        const reversed = name.split(':').reverse()
+        reversedNames.push(reversed)
+    }
+
+    const sortedNames = reversedNames
+        .join(':')
+        .split(':')
+        .sort()
+        .map((name) => `(${name})`)
+
+    for (let name of sortedNames) {
+        const final = name.split(' ')[0].split(',').join(', ')
+        result += final
+    }
+
+    return result
+}
+
+//prettier-ignore
+console.log(meeting("Alexis:Wahl;John:Bell;Victoria:Schwarz;Abba:Dorny;Grace:Meta;Ann:Arno;Madison:STAN;Alex:Cornwell;Lewis:Kern;Megan:Stan;Alex:Korn"));
+
+// "(ARNO, ANN)(BELL, JOHN)(CORNWELL, ALEX)(DORNY, ABBA)(KERN, LEWIS)(KORN, ALEX)(META, GRACE)(SCHWARZ, VICTORIA)(STAN, MADISON)(STAN, MEGAN)(WAHL, ALEXIS)
+
+
+
 */
