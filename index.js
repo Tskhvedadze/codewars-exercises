@@ -2506,6 +2506,47 @@ console.log(meeting("Alexis:Wahl;John:Bell;Victoria:Schwarz;Abba:Dorny;Grace:Met
 
 // "(ARNO, ANN)(BELL, JOHN)(CORNWELL, ALEX)(DORNY, ABBA)(KERN, LEWIS)(KORN, ALEX)(META, GRACE)(SCHWARZ, VICTORIA)(STAN, MADISON)(STAN, MEGAN)(WAHL, ALEXIS)
 
+// Find nearest square root 
+const nearestSq1 = (n) => {
+    const perfectSqrt = n ** (1 / 2)
+    if (!Number.isInteger(perfectSqrt)) {
+        while (Math.sqrt(n) % 1 !== 0) {
+            if (n > 100) n++
+            else n--
+        }
+        return n
+    } else {
+        return n
+    }
+}
+
+const nearestSq2 = (n) => Math.pow(Math.round(Math.sqrt(n)), 2)
+
+console.log(nearestSq1(111))
+console.log(nearestSq1(9999))
+console.log(nearestSq2(121))
+console.log(nearestSq2(2))
+
+
+
+const sumPairs = (ints, s) => {
+    const map = new Map()
+    for (let i = 0; i < ints.length; i++) {
+        const subtraction = s - ints[i]
+        if (map.has(subtraction)) {
+            return [subtraction, ints[i]]
+        }
+        map.set(ints[i], i)
+        console.log(map)
+    }
+    return undefined
+}
+
+// console.log(sumPairs([1, 4, 8, 7, 3, 15], 8)) //   result  [1, 7]
+// console.log(sumPairs([1, -2, 3, 0, -6, 1], -6)) // result  [0, -6]
+// console.log(sumPairs([10, 5, 2, 3, 7, 5], 10)) //  result  [3, 7]
+console.log(sumPairs([2, 3, 6, 9, 5], 11))
+
 
 
 */
