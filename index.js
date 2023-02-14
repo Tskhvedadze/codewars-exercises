@@ -2549,4 +2549,74 @@ console.log(sumPairs([2, 3, 6, 9, 5], 11))
 
 
 
+
+const vertMirror = (str) =>
+    str
+        .split('\n')
+        .map((words) => words.split('').reverse().join(''))
+        .join('\n')
+
+const horMirror = (str) => str.split('\n').reverse().join('\n')
+
+function oper(fct, s) {
+    return fct(s)
+}
+
+// console.log(oper(vertMirror, 'hSgdHQ\nHnDMao\nClNNxX\niRvxxH\nbqTVvA\nwvSyRu'))
+console.log(oper(horMirror, 'lVHt\nJVhv\nCSbg\nyeCt'))
+
+function sumMul(n, m) {
+    let sum = 0
+    if (n <= 0 || m <= 0) return 'INVALID'
+    else {
+        for (let i = n; i < m; i += n) {
+            sum += i
+        }
+    }
+    return sum
+}
+
+console.log(sumMul(2, 9))
+
+
+function derive(coefficient, exponent) {
+    return `${coefficient * exponent}x^${exponent - 1}`
+}
+
+console.log(derive(7, 8))
+console.log(derive(5, 9))
+
+
+// 1) find max and min
+// 2) mulitply max and min
+// 3) and sum the result
+
+function minSum(arr) {
+    arr.sort((a, b) => a - b)
+    let sum = 0
+    for (let i = 0; i < arr.length / 2; i++) {
+        sum += arr[i] * arr[arr.length - 1 - i]
+        //  პირველ დატრიალებაზე i არის 0 ამიტომ arr.length - 1 - i გამოდის arr.length - 1 ანუ ბოლო ელემენტი , რადგან შევკვეცეთ მასივის სიგრძე i ორჯერ დატრიალდება პირველი ნახევრისთვის რაც არის arr[i] 0 და 1 ხოლო ამავდროულად მეორენახევრისთვისაც დატრიალდება ორჯერ რადროსაც იქნება arr[arr.length - 1 - i] ანნუ i პირველდატრიალებაზე 0 ია ხოლო მასივს გამოაკლდება 1 - 0 ამიტომ გამოდის ბოლო ელემენტი ხოლო მეორე დატრიალებაზე i არის 1 ამიტომ მასივს გამოაკლდება სიგრძეს 1 - 1 ანუ სიგრძეს ორჯერ გამოაკლდება 1 იანი ამიტომ გამოვა ბოლოსწინა ელემენტი ამშემთხვევაში => 5 და 4
+    }
+    // return sum
+}
+
+console.log(minSum([5, 4, 2, 3])) // 22
+// console.log(minSum([9, 2, 8, 7, 5, 4, 0, 6])) // 74
+
+
+
+//  ვიპოვოთ ელემენტების ნამრავლის მაქსიმუმი შედეგი
+function adjacentElementsProduct(array) {
+    const result = []
+    for (let i = 0; i < array.length - 1; i++) {
+        result.push(array[i] * array[i + 1])
+    }
+    return Math.max(...result)
+}
+
+console.log(adjacentElementsProduct([1, 5, 10, 9])) // 90
+console.log(adjacentElementsProduct([5, 8])) // 40
+console.log(adjacentElementsProduct([5, 1, 2, 3, 1, 4])) // 6
+
 */
