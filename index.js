@@ -2619,4 +2619,90 @@ console.log(adjacentElementsProduct([1, 5, 10, 9])) // 90
 console.log(adjacentElementsProduct([5, 8])) // 40
 console.log(adjacentElementsProduct([5, 1, 2, 3, 1, 4])) // 6
 
+
+
+function maxProduct(numbers, size) {
+    const sorted = numbers.sort((a, b) => b - a)
+    sorted.splice(size)
+    let result = 1
+
+    for (let i = 0; i < sorted.length; i++) {
+        result *= sorted[i]
+    }
+
+    return result
+}
+
+console.log(maxProduct([10, 8, 7, 9], 3))
+console.log(maxProduct([8, 6, 4, 6], 3))
+
+
+function maxGap(numbers) {
+    const complement = []
+    const sorted = numbers.sort((a, b) => b - a)
+
+    for (let i = 0; i < sorted.length - 1; i++) {
+        complement.push(sorted[i] - sorted[i + 1])
+    }
+
+    return Math.max(...complement)
+}
+
+console.log(maxGap([13, 10, 2, 9, 5]))
+console.log(maxGap([13, 3, 5]))
+
+
+const productArray = (numbers) => {
+    const n = numbers.length
+    const result = new Array(n).fill(1)
+
+    let leftProduct = 1
+    let rightProduct = 1
+
+    for (let i = 0; i < n; i++) {
+        result[i] *= leftProduct
+        leftProduct *= numbers[i]
+    }
+
+    for (let i = n - 1; i >= 0; i--) {
+        result[i] *= rightProduct
+        rightProduct *= numbers[i]
+    }
+
+    return result
+}
+
+console.log(productArray([3, 27, 4, 2])) // [216,24,162,324]
+
+function nthSmallest(arr, pos) {
+    const sorted = arr.sort((a, b) => a - b)
+    sorted.splice(pos)
+    return sorted.at(-1)
+}
+
+console.log(nthSmallest([15, 20, 7, 10, 4, 3], 3))
+console.log(nthSmallest([-5, -1, -6, -18], 4))
+
+
+function maxTriSum(numbers) {
+    let filtered = [...new Set(numbers)]
+    let maxArray = []
+
+    let firstMax = Math.max(...filtered)
+    filtered.splice(filtered.indexOf(firstMax), 1)
+
+    let secondMax = Math.max(...filtered)
+    filtered.splice(filtered.indexOf(secondMax), 1)
+
+    let thirdMax = Math.max(...filtered)
+    filtered.splice(filtered.indexOf(thirdMax), 1)
+
+    maxArray.push([firstMax, secondMax, thirdMax])
+
+    return maxArray.flat().reduce((total, cur) => total + cur, 0)
+}
+
+// console.log(maxTriSum([3, 2, 6, 8, 2, 3]))
+console.log(maxTriSum([2, 1, 8, 0, 6, 4, 8, 6, 2, 4]))
+
 */
