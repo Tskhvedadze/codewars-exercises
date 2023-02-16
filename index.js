@@ -432,7 +432,7 @@ let str = 'If everybody in the world dropped out of school we would have a much 
 
 String.prototype.toJadenCase = () => {
 
-  const arr = str.split(' ');
+  const numbers = str.split(' ');
 
   for (let i = 0; i < arr.length; i++) {
     arr[i] = arr[i].charAt(0).toUpperCase() + arr[i].slice(1);
@@ -2704,5 +2704,65 @@ function maxTriSum(numbers) {
 
 // console.log(maxTriSum([3, 2, 6, 8, 2, 3]))
 console.log(maxTriSum([2, 1, 8, 0, 6, 4, 8, 6, 2, 4]))
+
+
+function balancedNum(number) {
+    const numsArray = number
+        .toString()
+        .split('')
+        .map((num) => Number(num))
+
+    const length = numsArray.length
+    let balance = '',
+        firstHalf,
+        secondHalf,
+        firstSum,
+        secondSum
+
+    if (length <= 1 || (length > 1 && length <= 3)) {
+        if (length === 3 && numsArray[0] !== numsArray[2]) return 'Not Balanced'
+        else return 'Balanced'
+    }
+
+    if (length > 3) {
+        if (length % 2 === 0) {
+            firstHalf = numsArray.slice(0, length / 2 - 1)
+            secondHalf = numsArray.slice(length / 2 + 1)
+
+            firstSum = firstHalf.reduce((a, b) => a + b, 0)
+            secondSum = secondHalf.reduce((a, b) => a + b, 0)
+
+            firstSum === secondSum
+                ? (balance += 'Balance')
+                : (balance += 'Not Balance')
+        }
+        if (length % 2 !== 0) {
+            firstHalf = numsArray.slice(0, length / 2)
+            secondHalf = numsArray.slice(length / 2 + 1)
+
+            firstSum = firstHalf.reduce((a, b) => a + b, 0)
+            secondSum = secondHalf.reduce((a, b) => a + b, 0)
+
+            firstSum === secondSum
+                ? (balance += 'Balance')
+                : (balance += 'Not Balance')
+        }
+    }
+
+    return balance
+}
+
+console.log(balancedNum(7)) //   "Balanced"
+console.log(balancedNum(13)) //  "Balanced"
+console.log(balancedNum(959)) // "Balanced"
+
+function nthSmallest(arr, pos) {
+    const sorted = arr.sort((a, b) => a - b)
+    const indexOfPos = sorted.slice(0, pos)
+
+    return indexOfPos.at(-1)
+}
+
+console.log(nthSmallest([15, 20, 7, 10, 4, 3], 5))
 
 */
