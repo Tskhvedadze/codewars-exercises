@@ -2765,4 +2765,78 @@ function nthSmallest(arr, pos) {
 
 console.log(nthSmallest([15, 20, 7, 10, 4, 3], 5))
 
+
+const factorial = (n) => {
+    if (n === 1 || n === 0) return 1
+    else return n * factorial(n - 1)
+}
+
+const strong = (n) => {
+    const numsArray = n.toString().split('')
+    const factorialsArray = []
+    let str = 'STRONG!!!!'
+    for (let i = 0; i < numsArray.length; i++) {
+        const element = Number(numsArray[i])
+        factorialsArray.push(factorial(element))
+    }
+    const result = factorialsArray.reduce((total, cur) => total + cur, 0)
+
+    return result === n ? str : (str = 'Not Strong !!')
+}
+
+console.log(strong(40585))
+
+
+const disariumNumber = (n) => {
+    const numsArray = n
+        .toString()
+        .split('')
+        .map((num) => Number(num))
+
+    const disariumArray = []
+    let str = 'Disarium !!'
+
+    for (let i = 0; i < numsArray.length; i++) {
+        const element = numsArray[i]
+        disariumArray.push(element ** (1 + i))
+    }
+    const result = disariumArray.reduce((total, cur) => total + cur, 0)
+
+    return result === n ? str : (str = 'Not !!')
+}
+console.log(disariumNumber(89))
+console.log(disariumNumber(564))
+
+function specialNumber(n) {
+    if (n <= 5) return 'Special!!'
+    if (n >= 6 && n <= 9) return 'NOT!!'
+    if (n > 9) {
+        const digits = n
+            .toString()
+            .split('')
+            .map((n) => Number(n))
+        for (let i = 0; i < digits.length; i++) {
+            if (digits[i] < 0 || digits[i] > 5) return 'NOT!!'
+        }
+        return 'Special!!'
+    }
+}
+
+console.log(specialNumber(5))
+console.log(specialNumber(9))
+console.log(specialNumber(10))
+console.log(specialNumber(67))
+
+const automorphic = (n) => {
+    const square = n ** 2
+    const strN = n.toString()
+    const strSquare = square.toString()
+    const strMatch = strSquare.slice(-strN.length)
+    return strN === strMatch ? 'Automorphic' : 'Not!!'
+}
+
+console.log(automorphic(25))
+console.log(automorphic(76))
+console.log(automorphic(13))
+
 */
