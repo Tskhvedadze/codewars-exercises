@@ -2839,4 +2839,72 @@ console.log(automorphic(25))
 console.log(automorphic(76))
 console.log(automorphic(13))
 
+
+
+function extraPerfect(n) {
+    const perfectsArray = []
+
+    for (let i = 0; i <= n; i++) {
+        if (i % 2 !== 0) {
+            perfectsArray.push(i)
+        }
+    }
+
+    return perfectsArray
+}
+
+console.log(extraPerfect(7))
+
+
+
+function tidyNumber(n) {
+    const numsArray = n
+        .toString()
+        .split('')
+        .map((n) => Number(n))
+
+    let tidy = true
+    for (let i = 0; i < numsArray.length; i++) {
+        if (numsArray[i] > numsArray[i + 1]) tidy = false
+    }
+    return tidy
+}
+
+console.log(tidyNumber(12))
+console.log(tidyNumber(102))
+console.log(tidyNumber(9672))
+console.log(tidyNumber(2335))
+
+
+function primorial(n) {
+    let primeNumbers = [] // array to store prime numbers
+    let count = 0 // variable to keep track of the number of prime numbers found
+    let product = 1 // variable to store the product of the prime numbers
+
+    // loop until we find the first n prime numbers
+    for (let i = 2; count < n; i++) {
+        let isPrime = true
+
+        // check if i is prime
+        for (let j = 2; j <= Math.sqrt(i); j++) {
+            if (i % j === 0) {
+                isPrime = false
+                break
+            }
+        }
+
+        // if i is prime, add it to the array and update the product
+        if (isPrime) {
+            primeNumbers.push(i)
+            product *= i
+            count++
+        }
+    }
+
+    return product
+}
+
+console.log(primorial(8)) // 9699690
+
+
 */
