@@ -2907,4 +2907,55 @@ function primorial(n) {
 console.log(primorial(8)) // 9699690
 
 
+
+function jumpingNumber(n) {
+    const numsArray = n
+        .toString()
+        .split('')
+        .map((n) => parseInt(n))
+
+    const len = numsArray.length
+
+    if (len === 1) return 'Jumping!!'
+    if (len === 2) {
+        if (Math.abs(numsArray[0] - numsArray[1]) === 1) return 'Jumping!!'
+        else return 'Not!!'
+    }
+
+    if (len > 2) {
+        let counter = 1
+        while (
+            Math.abs(numsArray[counter] - numsArray[counter - 1]) === 1 &&
+            Math.abs(numsArray[counter] - numsArray[counter + 1]) === 1
+        ) {
+            counter++
+        }
+        return counter === len - 1 ? 'Jumping!!' : 'Not!!'
+    }
+}
+
+console.log(jumpingNumber(79))
+console.log(jumpingNumber(8987))
+
+
+function sumCubes(n) {
+    const numsArray = []
+
+    for (let i = 1; i <= n; i++) {
+        numsArray.push(i)
+    }
+
+    const cubes = numsArray.map((n) => n ** 3)
+
+    return cubes.reduce((total, cur) => total + cur, 0)
+}
+
+console.log(sumCubes(3))
+
+
+const feast = (beast, dish) =>
+    beast.at(0) === dish.at(0) && beast.at(-1) === dish.at(-1)
+
+console.log(feast('great blue heron', 'garlic naan'))
+
 */
