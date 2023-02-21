@@ -2958,4 +2958,71 @@ const feast = (beast, dish) =>
 
 console.log(feast('great blue heron', 'garlic naan'))
 
+const lowercaseCount = (str) => {
+    const lowercaseArray = str.match(/[a-z]/g)
+    return lowercaseArray ? lowercaseArray.length : 0
+}
+
+console.log(lowercaseCount("abcABC123!@€£#$%^&*()_-+=}{[]|':;?/>.<,~"))
+
+
+
+function isSortedAndHow(array) {
+    let isAscending = true
+    let isDescending = true
+    for (let i = 1; i < array.length; i++) {
+        if (array[i] > array[i - 1]) {
+            isDescending = false
+        } else if (array[i] < array[i - 1]) {
+            isAscending = false
+        }
+    }
+    if (isAscending) {
+        return 'yes, ascending'
+    } else if (isDescending) {
+        return 'yes, descending'
+    } else {
+        return 'no'
+    }
+}
+
+console.log(isSortedAndHow([15, 7, 3, -8]))
+// console.log(isSortedAndHow([1, 2]))
+
+// console.log(isSortedAndHow([4, 2, 30]))
+
+
+function digits(n) {
+    return (n && n.toString().split('').length) || 1
+}
+
+console.log(digits(12345))
+console.log(digits(9))
+
+
+function generateShape(integer) {
+    let shapes = ''
+    let space = []
+
+    for (let i = 1; i <= integer; i++) {
+        shapes += '+'
+    }
+
+    for (let i = 1; i <= integer; i++) {
+        space.push(shapes)
+    }
+
+    return space.join('\n')
+}
+
+console.log(generateShape(8))
+
+
+
+function isPowerOfTwo(n) {
+    return Number.isInteger(Math.log2(n))
+}
+
+console.log(isPowerOfTwo(536870912))
+
 */
