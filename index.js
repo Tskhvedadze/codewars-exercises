@@ -3025,4 +3025,49 @@ function isPowerOfTwo(n) {
 
 console.log(isPowerOfTwo(536870912))
 
+
+function twoSum(numbers, target) {
+    for (let i = 0; i < numbers.length; i++) {
+        for (let j = 0; j < i; j++) {
+            if (numbers[j] + numbers[i] === target) return [j, i]
+        }
+    }
+}
+
+console.log(
+    twoSum(
+        [
+            416, -830, -709, -634, 126, -514, 4, 297, -888, 681, 348, 463, -672,
+            -776, 298, -270, -454, -212, 158, -265, -170, 11, 386, -601, -925,
+            -745, 415, 77, -218, 810, -9, 527, 509, 398, 951, -70, 870, 398,
+            194, -774, -532, 816, -869, -61, 856, -738, 695, -530, 479, 864,
+            -177, 505, -256, 169, -787, 212, -122,
+        ],
+        695,
+    ),
+) //[7,33]
+
+function count(string, obj = {}) {
+    if (!string.length) return obj
+    string.split('').map((item) => (obj[item] ? obj[item]++ : (obj[item] = 1)))
+    return obj
+}
+
+console.log(count('abaaaab'))
+
+
+function findOdd(A, obj = {}) {
+    A.map((item) => (obj[item] ? (obj[item] += 1) : (obj[item] = 1)))
+
+    const key = Object.keys(obj)
+    const value = Object.values(obj)
+
+    for (let i = 0; i < key.length; i++) {
+        if (value[i] % 2 !== 0) return Number(key[i])
+    }
+}
+
+console.log(findOdd([20, 1, -1, 2, -2, 3, 3, 5, 5, 1, 2, 4, 20, 4, -1, -2, 5]))
+console.log(findOdd([7]))
+
 */
