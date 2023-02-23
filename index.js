@@ -3070,4 +3070,67 @@ function findOdd(A, obj = {}) {
 console.log(findOdd([20, 1, -1, 2, -2, 3, 3, 5, 5, 1, 2, 4, 20, 4, -1, -2, 5]))
 console.log(findOdd([7]))
 
+
+
+function breakCamelCase(string) {
+    const strToArray = string.split('')
+    let word = ''
+
+    for (let char of strToArray) {
+        if (char >= 'A' && char <= 'Z') {
+            word += `${' '}${char}`
+        } else {
+            word += char
+        }
+    }
+
+    return word
+}
+
+console.log(breakCamelCase('camelCasing'))
+
+
+
+function array(arr) {
+    const array = [...arr].join('').split(',')
+    const result = []
+    if (result <= 2) return null
+
+    for (let [i, num] of array.entries()) {
+        if (i >= 1 && i < array.length - 1) {
+            result.push(num)
+        }
+    }
+
+    return result.join(' ')
+}
+
+console.log(array(''))
+
+
+
+
+function remove(s, n) {
+    let count = 0
+    let result
+
+    for (let i = 0; i < s.length; i++) {
+        if (s[i] === '!') count++
+    }
+
+    if (n >= count) {
+        return s.replaceAll('!', '')
+    } else {
+        let result = s
+        for (let i = 1; i <= n; i++) {
+            result = result.replace('!', '')
+        }
+        return result
+    }
+}
+
+console.log(remove('!!!Hi !!hi!!! !hi', 1))
+
+
+
 */
