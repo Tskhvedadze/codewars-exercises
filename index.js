@@ -3132,5 +3132,72 @@ function remove(s, n) {
 console.log(remove('!!!Hi !!hi!!! !hi', 1))
 
 
+function duplicateEncode(word) {
+    const charCount = {}
+    const lowerWord = word.toLowerCase()
+    let result = ''
+
+    for (let i = 0; i < lowerWord.length; i++) {
+        const char = lowerWord[i]
+        charCount[char] = (charCount[char] || 0) + 1
+    }
+
+    for (let i = 0; i < lowerWord.length; i++) {
+        const char = lowerWord[i]
+        if (charCount[char] > 1) {
+            result += ')'
+        } else {
+            result += '('
+        }
+    }
+
+    return result
+}
+
+console.log(duplicateEncode('(( @')) // => ))((
+console.log(duplicateEncode('din')) // => (((
+console.log(duplicateEncode('recede')) // ()()()
+console.log(duplicateEncode('Success')) // => )())())
+
 
 */
+
+const countChars = (string) => {
+    const LENGTH = string.length
+    const OBJECT = {}
+    const COUNT_CHARACHTERS = {}
+    for (let i = 0; i < LENGTH; i++) {
+        const EL = string[i]
+        if (EL !== ' ') OBJECT[EL] = (OBJECT[EL] || 0) + 1
+    }
+
+    for (let i = 0; i < LENGTH; i++) {
+        const EL = string[i]
+        if (OBJECT[EL] > 1) {
+            COUNT_CHARACHTERS[EL] = (COUNT_CHARACHTERS[EL] || 0) + 1
+        }
+    }
+    return COUNT_CHARACHTERS
+}
+
+function mix(s1, s2) {
+    const FIRST_SENTENCE = countChars(s1)
+    const SECOND_SENTENCE = countChars(s2)
+    const LENGTH = s1.length + s2.length
+    let result = ''
+
+    for (let i = 1; i < LENGTH; i++) {
+        const EL = s1[i]
+        const EL2 = s2[i]
+        if (
+            FIRST_SENTENCE[EL] !== undefined &&
+            SECOND_SENTENCE[EL2] !== undefined
+        ) {
+            console.log(SECOND_SENTENCE[EL])
+        }
+    }
+
+    console.log(FIRST_SENTENCE)
+}
+
+console.log(mix('Are they here', 'yes, they are here')) // "2:eeeee/2:yy/=:hh/=:rr"
