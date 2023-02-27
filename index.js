@@ -3160,8 +3160,6 @@ console.log(duplicateEncode('recede')) // ()()()
 console.log(duplicateEncode('Success')) // => )())())
 
 
-*/
-
 const countChars = (string) => {
     const LENGTH = string.length
     const OBJECT = {}
@@ -3201,3 +3199,7 @@ function mix(s1, s2) {
 }
 
 console.log(mix('Are they here', 'yes, they are here')) // "2:eeeee/2:yy/=:hh/=:rr"
+
+
+
+*/
