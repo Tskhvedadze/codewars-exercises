@@ -3200,6 +3200,43 @@ function mix(s1, s2) {
 
 console.log(mix('Are they here', 'yes, they are here')) // "2:eeeee/2:yy/=:hh/=:rr"
 
+function switcheroo(x) {
+    let replaced = ''
+
+    for (let char of x) {
+        if (char === 'a') {
+            replaced += 'b'
+        } else if (char === 'b') {
+            replaced += 'a'
+        } else {
+            replaced += char
+        }
+    }
+
+    return replaced
+}
+
+console.log(switcheroo('aaabcccbaaa')) // bbbacccabbb switch a's and b's postion
+
+
+// Converting Number to binary 
+function toBinary(n) {
+    if (n === 0) return 0
+    let binary = ''
+
+    while (n > 0) {
+        if (n % 2 !== 0) {
+            binary = '1' + binary
+        } else if (n % 2 === 0) {
+            binary = '0' + binary
+        }
+        n = Math.floor(n / 2)
+    }
+
+    return parseInt(binary, 10)
+}
+
+console.log(toBinary(4)) // 101
 
 
 */
