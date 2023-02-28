@@ -3238,5 +3238,47 @@ function toBinary(n) {
 
 console.log(toBinary(4)) // 101
 
+// Draft is total ship wight
+// Crew is total number of humans in the ship
+
+class Ship {
+    constructor(draft, crew) {
+        this.draft = draft
+        this.crew = crew
+    }
+    isWorthIt() {
+        const unit = 1.5
+        const removedDraft = this.draft && this.crew && this.draft - this.crew * unit
+
+        return removedDraft && removedDraft > 20 ? true : false
+    }
+}
+
+
+let emptyShip = new Ship(0, 0)
+let aWorthyShip = new Ship(100, 20)
+
+console.log(aWorthyShip.isWorthIt())
+console.log(emptyShip.isWorthIt())
+
+function solution(number) {
+    const countArray = []
+
+    for (let i = 1; i < number; i++) {
+        if (i % 3 === 0 || i % 5 === 0) {
+            countArray.push(i)
+        }
+    }
+
+    return countArray.reduce((total, curr) => total + curr, 0)
+}
+
+console.log(solution(10))
+
+function toNumberArray(stringarray) {
+    return stringarray.map((value) => parseFloat(value))
+}
+
+console.log(toNumberArray(['1.1', '2.2', '3.3']))
 
 */
