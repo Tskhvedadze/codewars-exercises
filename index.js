@@ -3281,4 +3281,72 @@ function toNumberArray(stringarray) {
 
 console.log(toNumberArray(['1.1', '2.2', '3.3']))
 
+
+// First Solution
+// function bump(x) {
+//     let bumps = 0
+
+//     for (let n of x) {
+//         n === 'n' && bumps++
+//     }
+
+//     return bumps <= 15 ? 'Woohoo!' : 'Car Dead'
+// }
+
+//  Second Solution
+const bump = (x) =>
+    x.split('').filter((bumps) => bumps === 'n').length <= 15
+        ? 'Woohoo!'
+        : 'Car Dead'
+
+// return bumps <= 15 ? 'Woohoo!' : 'Car Dead'
+console.log(bump('nnn_n__n_n___nnnnn___n__nnnn__'))
+
+
+function countRedBeads(n) {
+    let beads = '@@'
+    const beadsArray = []
+
+    for (let i = 1; i < n; i++) {
+        beadsArray.push(beads)
+    }
+
+    return beadsArray.join('').split('').length
+}
+
+console.log(countRedBeads(5))
+
+
+const sortGiftCode = (code) => code.split('').sort().join('')
+
+console.log(sortGiftCode('pqksuvy')) // 'kpqsuvy'
+
+
+function dataReverse(data) {
+    let segmentLength = 8
+    let reversedData = []
+
+    for (let i = 0; i < data.length; i += segmentLength) {
+        let segment = data.slice(i, i + segmentLength)
+        reversedData.push(segment)
+    }
+
+    return reversedData.reverse().flat()
+}
+
+// prettier-ignore
+console.log(dataReverse([1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,0,1,0,1,0,1,0]))
+
+
+function contamination(text, char) {
+    let result = ''
+    for (let i = 0; i < text.length; i++) {
+        result += char
+    }
+
+    return result
+}
+
+console.log(contamination('abc', 'z'))
+
 */
