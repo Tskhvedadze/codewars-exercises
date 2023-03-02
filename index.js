@@ -3349,4 +3349,69 @@ function contamination(text, char) {
 
 console.log(contamination('abc', 'z'))
 
+
+Object.defineProperty(Array.prototype, 'containsAll', {
+    value: function containsAll(a) {
+        let contain = false
+
+        a.every((el) => this.includes(el)) && (contain = true)
+
+        return contain
+    },
+})
+
+const items1 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+const items2 = []
+
+console.log(items1.containsAll([1, 2, 3, 4, 5]))
+console.log(items1.containsAll([9, 2, 5, 4, 10]))
+console.log(items1.containsAll([12, 15]))
+console.log(items2.containsAll([12, 15]))
+
+
+
+function isDigit(s) {
+    return s == parseFloat(s)
+}
+
+console.log(isDigit('s2324'))
+console.log(isDigit('-234.4'))
+
+
+function cubeOdd(arr) {
+    for (let num of arr) {
+        if (typeof num !== 'number') return undefined
+    }
+
+    return arr
+        .map((num) => num ** 3)
+        .filter((num) => num % 2)
+        .reduce((total, cur) => total + cur, 0)
+}
+
+console.log(cubeOdd([1, 2, 3, 4]))
+console.log(cubeOdd(['a', 12, 9, 'z', 42]))
+
+
+('3♣') -> return 'clubs'
+('3♦') -> return 'diamonds'
+('3♥') -> return 'hearts'
+('3♠') -> return 'spades'
+
+
+function defineSuit(card) {
+    let result = ''
+    for (let char of card) {
+        if (char === '♣') result += 'clubs'
+        if (char === '♦') result += 'diamonds'
+        if (char === '♥') result += 'hearts'
+        if (char === '♠') result += 'spades'
+    }
+    return result
+}
+
+console.log(defineSuit('Q♠'))
+console.log(defineSuit('9♦'))
+console.log(defineSuit('J♥'))
+
 */
