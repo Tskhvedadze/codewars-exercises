@@ -3414,4 +3414,126 @@ console.log(defineSuit('Q♠'))
 console.log(defineSuit('9♦'))
 console.log(defineSuit('J♥'))
 
+
+square(), cube(), average(), sum(), even() and odd()
+
+
+
+Array.prototype.square = function () {
+    return this.map((num) => num ** 2)
+}
+Array.prototype.cube = function () {
+    return this.map((num) => num ** 3)
+}
+Array.prototype.average = function () {
+    return this.reduce((total, cur) => total + cur, 0) / this.length
+}
+Array.prototype.sum = function () {
+    return this.reduce((total, cur) => total + cur, 0)
+}
+Array.prototype.even = function () {
+    return this.filter((num) => !(num % 2))
+}
+Array.prototype.odd = function () {
+    return this.filter((num) => num % 2)
+}
+
+const array = [1, 2, 3, 4, 5]
+
+console.log(array.square())
+console.log(array.cube())
+console.log(array.sum())
+console.log(array.average())
+console.log(array.even())
+console.log(array.odd())
+
+
+function _if(bool, func1, func2) {
+    if (bool) {
+        return func1()
+    } else {
+        return func2()
+    }
+}
+
+console.log(
+    _if(
+        false,
+        function () {
+            return 'True'
+        },
+        function () {
+            return 'False'
+        },
+    ),
+)
+
+function countDivisors(n) {
+    let count = 0
+    for (let i = 1; i <= Math.sqrt(n); i++) {
+        if (n % i === 0) {
+            if (Math.floor(n / i) === i) count++
+            else count += 2
+        }
+    }
+    return count
+}
+
+const divNum = (a, b) => {
+    const allNumbers = []
+    const divisors = []
+    if (a > b) return 'Error'
+    for (let i = a; i <= b; i++) {
+        if (!(i % 2)) {
+            allNumbers.push(i)
+        }
+    }
+
+    for (let i = 0; i < allNumbers.length; i++) {
+        const elements = allNumbers[i]
+        divisors.push(countDivisors(elements))
+    }
+
+    const index = divisors.indexOf(Math.max(...divisors))
+    return allNumbers[index]
+}
+
+console.log(divNum(15, 30))
+
+function solution(str) {
+    const segments = 2
+    const splitedOne = []
+    const splitedTwo = []
+
+    if (str.length % 2 === 0) {
+        for (let i = 0; i < str.length; i += segments) {
+            splitedOne.push([str[i], str[i + 1]])
+        }
+        return splitedOne.map((char) => char.join(''))
+    }
+
+    if (str.length % 2 !== 0) {
+        for (let i = 0; i < str.length; i += segments) {
+            splitedTwo.push([str[i], str[i + 1]])
+        }
+
+        return splitedTwo.map((char) => {
+            let word = ''
+            for (let c of char) {
+                if (c === undefined) {
+                    word += '_'
+                } else {
+                    word += c
+                }
+            }
+
+            return word
+        })
+    }
+}
+
+console.log(solution('abcdef'))
+console.log(solution('abcdefg'))
+
+
 */
