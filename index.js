@@ -3535,5 +3535,54 @@ function solution(str) {
 console.log(solution('abcdef'))
 console.log(solution('abcdefg'))
 
+const orderedCount = function (text) {
+    let result = []
+    for (let i = 0; i < text.length; i++) {
+        let count = 0
+        for (let j = 0; j < result.length; j++) {
+            if (result[j][0] === text[i]) {
+                count++
+            }
+        }
+        if (count === 0) {
+            for (let j = i; j < text.length; j++) {
+                if (text[j] === text[i]) {
+                    count++
+                }
+            }
+            result.push([text[i], count])
+        }
+    }
+    return result
+}
+
+console.log(orderedCount('abracadabra'))
+
+
+function divCon(x) {
+    const nonStringInt = x
+        .filter((el) => typeof el !== 'string')
+        .reduce((total, cur) => total + cur, 0)
+
+    const stringInt = x
+        .filter((el) => typeof el === 'string')
+        .reduce((total, cur) => total + parseInt(cur), 0)
+
+    return nonStringInt - stringInt
+}
+
+console.log(divCon([9, 3, '7', '3']))
+
+
+function remove(string) {
+    return (
+        string
+            .split('')
+            .filter((char) => char !== '!')
+            .join('') + '!'
+    )
+}
+
+console.log(remove('Hi!!!'))
 
 */
