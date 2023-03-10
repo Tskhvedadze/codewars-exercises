@@ -3585,4 +3585,19 @@ function remove(string) {
 
 console.log(remove('Hi!!!'))
 
+
+function multiplicationTable(N) {
+    let table = []
+    for (let i = 1; i <= N; i++) {
+        let row = []
+        for (let j = 1; j <= N; j++) {
+            row.push(i * j)
+        }
+        table.push(row)
+    }
+    return table
+}
+
+console.log(multiplicationTable(3))
+
 */
