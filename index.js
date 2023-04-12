@@ -3600,4 +3600,80 @@ function multiplicationTable(N) {
 
 console.log(multiplicationTable(3))
 
+
+const safeInteger = (n) => Number.isSafeInteger(n)
+
+console.log(safeInteger(9007199254740992))
+
+
+function spacify(str) {
+    let result = str.split('')
+
+    const splited = result
+        .map((char) => (char += ' '))
+        .join('')
+        .split('')
+        .join('')
+
+    return splited.slice(0, splited.length - 1)
+}
+
+console.log(spacify('hello world'))
+console.log(spacify('12345'))
+
+
+
+
+function pointsPer48(ppg, mpg) {
+    let extrapolationOfPpg
+    if (ppg === 0 || mpg === 0) extrapolationOfPpg = 0
+    else {
+        extrapolationOfPpg = (ppg / mpg) * 48
+    }
+
+    return Number(extrapolationOfPpg.toFixed(1))
+}
+
+console.log(pointsPer48(0, 0))
+console.log(pointsPer48(12, 20))
+console.log(pointsPer48(10, 10))
+
+
+
+function reverse(str) {
+    if (str.trim() === '') return ''
+
+    let result = ''
+    const arrayStr = str.split(' ')
+
+    for (const [index, word] of arrayStr.entries()) {
+        const newInd = index + 1
+
+        if (newInd % 2 === 0) result += ` ${word.split('').reverse().join('')}`
+        else result += ` ${word}`
+    }
+    return result.trim()
+}
+
+console.log(reverse('Reverse this string, please!'))
+console.log(reverse('how are you'))
+
+
+function foldTo(distance) {
+    let paper = 0.0001
+    let folds = 0
+    if (distance < 0) {
+        return null
+    } else {
+        while (distance > paper) {
+            paper *= 2
+            folds += 1
+        }
+    }
+    return folds
+}
+
+console.log(foldTo(348000000))
+
+
 */
