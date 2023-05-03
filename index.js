@@ -3730,9 +3730,6 @@ function dividedBy(n) {
 }
 
 
-
-*/
-
 function fuelPrice(litres, pricePerLitre) {
     if (litres >= 4) return litres * pricePerLitre - litres * 0.1
 }
@@ -3740,3 +3737,47 @@ function fuelPrice(litres, pricePerLitre) {
 console.log(fuelPrice(5, 1.23))
 console.log(fuelPrice(8, 2.5))
 console.log(fuelPrice(5, 5.6))
+
+
+const minNum = (array) => {
+    let min = array[0]
+    for (let i = 0; i < array.length; i++) {
+        if (array[i] < min) min = array[i]
+    }
+    return min
+}
+
+const maxNum = (array) => {
+    let max = array[0]
+    for (let i = 0; i < array.length; i++) {
+        if (array[i] > max) max = array[i]
+    }
+    return max
+}
+
+const maxDiff = (list) => (list.length <= 1 ? 0 : maxNum(list) - minNum(list))
+
+console.log(maxDiff([0, 1, 2, 3, 4, 5, 6]))
+console.log(maxDiff([]))
+console.log(maxDiff([1]))
+
+
+*/
+
+function rowWeights(array) {
+    const teamOne = []
+    const teamTwo = []
+
+    for (let i = 0; i < array.length; i++) {
+        if (i % 2 === 0) teamOne.push(array[i])
+        else teamTwo.push(array[i])
+    }
+
+    return [
+        teamOne.reduce((total, cur) => total + cur, 0),
+        teamTwo.reduce((total, cur) => total + cur, 0),
+    ]
+}
+
+console.log(rowWeights([50, 60, 70, 80]))
+console.log(rowWeights([100, 51, 50, 100])) // [ 150, 151 ]
