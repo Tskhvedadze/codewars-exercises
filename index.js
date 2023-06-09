@@ -3764,20 +3764,116 @@ console.log(maxDiff([1]))
 
 */
 
-function rowWeights(array) {
-    const teamOne = []
-    const teamTwo = []
+// function rowWeights(array) {
+//     const teamOne = []
+//     const teamTwo = []
 
-    for (let i = 0; i < array.length; i++) {
-        if (i % 2 === 0) teamOne.push(array[i])
-        else teamTwo.push(array[i])
-    }
+//     for (let i = 0; i < array.length; i++) {
+//         if (i % 2 === 0) teamOne.push(array[i])
+//         else teamTwo.push(array[i])
+//     }
 
-    return [
-        teamOne.reduce((total, cur) => total + cur, 0),
-        teamTwo.reduce((total, cur) => total + cur, 0),
-    ]
-}
+//     return [
+//         teamOne.reduce((total, cur) => total + cur, 0),
+//         teamTwo.reduce((total, cur) => total + cur, 0),
+//     ]
+// }
 
-console.log(rowWeights([50, 60, 70, 80]))
-console.log(rowWeights([100, 51, 50, 100])) // [ 150, 151 ]
+// console.log(rowWeights([50, 60, 70, 80]))
+// console.log(rowWeights([100, 51, 50, 100])) // [ 150, 151 ]
+
+// function reverse(int) {
+//     const string = int.toString()
+//     let result = ''
+//     for (let i = string.length - 1; i >= 0; i--) {
+//         result += string[i]
+//     }
+
+//     return result
+// }
+
+// console.log(reverse(311))
+
+// function shortString(string, shortTo) {
+//     if (string.length < shortTo) {
+//         return string
+//     }
+//     let result = ''
+//     let newResult = '.'
+//     for (let i = 0; i < string.length - shortTo; i++) {
+//         result += string[i]
+//     }
+
+//     for (let i = 0; i < string.length - shortTo; i++) {
+//         result += newResult
+//     }
+
+//     return result
+// }
+
+// console.log(shortString('complete', 4))
+// console.log(shortString('completecompletecompletecomplete', 10))
+
+// function showSentence(string, lens) {
+//     const strToArr = string.split(' ')
+//     const result = []
+
+//     for (let i = 0; i < lens; i++) {
+//         result.push(strToArr[i])
+//     }
+
+//     return result.join(' ')
+// }
+
+// console.log(showSentence('javascript is a good progrmaing language', 2))
+
+// function stringChoper(string, size) {
+//     const get = []
+//     let i = 0
+
+//     while (i < string.length) {
+//         get.push(string.slice(i, i + size))
+//         i = i + size
+//     }
+
+//     return get
+// }
+
+// console.log(stringChoper('javascript', 2))
+
+// const person = {
+//     firstName: 'John',
+//     lastName: 'Doe',
+//     family: {
+//         sister: { firstName: 'Dodo', lastName: 'Dodolast' },
+//         brother: {
+//             firstName: 'Dodo',
+//             lastName: 'Dodolast',
+//             child: {
+//                 firstName: 'dodo-junior',
+//                 lastName: 'dodo-junior-lastname',
+//             },
+//         },
+//     },
+// }
+
+// function getKeyValues(obj) {
+//     const result = []
+
+//     for (const key in obj) {
+//         if (typeof obj[key] === 'object') {
+//             const nestedKeyValues = getKeyValues(obj[key])
+//             result.push(
+//                 ...nestedKeyValues.map((pair) => ({
+//                     key: `${key}.${pair.key}`,
+//                     value: pair.value,
+//                 })),
+//             )
+//         } else {
+//             result.push({ key, value: obj[key] })
+//         }
+//     }
+
+//     return result
+// }
+// console.log(getKeyValues(person))
