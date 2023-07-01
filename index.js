@@ -3923,6 +3923,63 @@ console.log(solve('P*K4%>mQUDaG$h=cx2?.Czt7!Zn16p@5H')) // [9,9,6,9]
 console.log(solve('aAbBcC'))
 console.log(solve('Codewars@codewars123.com'))
 
+const longestPalindrome = function (s) {
+  let longest = 0
+  let length = s.length
+
+  for (let i = 0; i < length; i++) {
+    for (let j = i + 1; j <= length; j++) {
+      let str = s.slice(i, j)
+      let l = str.length
+      if (isPalindrome(str) && longest < l) {
+        longest = l
+      }
+    }
+  }
+  return isPalindrome(s)
+}
+
+function isPalindrome(s) {
+  let arr = s.split('')
+  return s == arr.reverse().join('')
+}
+
+// console.log(longestPalindrome('a'))
+// console.log(longestPalindrome('aab'))
+// console.log(longestPalindrome('abcde'))
+// console.log(longestPalindrome('zzbaabcd'))
+// console.log(longestPalindrome(''))
+
+
+
+function vaporcode(string) {
+  const arr = string.toUpperCase().split('')
+  let result = ''
+
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] !== ' ') result += arr[i] + '  '
+
+  }
+
+  return result.slice(0, -2)
+}
+
+console.log(vaporcode('Lets go to the movies'))
+
+function removeRotten(bagOfFruits) {
+  const rotten = 'rotten'
+  if (bagOfFruits) {
+    for (let i = 0; i < bagOfFruits.length; i++) {
+      if (bagOfFruits[i].includes(rotten)) {
+        bagOfFruits[i] = bagOfFruits[i].replace(rotten, '').toLowerCase()
+      }
+    }
+    return bagOfFruits
+  } else return []
+}
+
+console.log(removeRotten(['apple', 'rottenBanana', 'apple']))
+console.log(removeRotten([]))
 
 
 */
