@@ -3982,4 +3982,38 @@ console.log(removeRotten(['apple', 'rottenBanana', 'apple']))
 console.log(removeRotten([]))
 
 
+
+function isPythagoreanTriple(integers) {
+  let max = integers[0]
+
+  for (const int of integers) int > max && (max = int)
+
+  const maxIndex = integers.indexOf(max)
+  return (
+    integers
+      .filter((int) => int !== max)
+      .map((int) => int ** 2)
+      .reduce((a, b) => a + b, 0) ===
+    max ** 2
+  )
+}
+
+console.log(isPythagoreanTriple([3, 4, 5]))
+console.log(isPythagoreanTriple([3, 5, 9]))
+console.log(isPythagoreanTriple([72, 78, 30]))
+
+
+function min(arr, toReturn) {
+  let min = arr[0]
+  for (const int of arr) int < min && (min = int)
+
+  if (toReturn === 'value') return min
+  else if (toReturn === 'index') return arr.indexOf(min)
+}
+
+console.log(min([1, 2, 3, 4, 5], 'value'))
+console.log(min([1, 2, 3, 4, 5], 'index'))
+
+
+
 */
