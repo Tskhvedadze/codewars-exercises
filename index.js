@@ -4015,5 +4015,45 @@ console.log(min([1, 2, 3, 4, 5], 'value'))
 console.log(min([1, 2, 3, 4, 5], 'index'))
 
 
+function powersOfTwo(n) {
+  const result = []
+  for (let i = 0; i <= n; i++) result.push(2 ** i)
+  return result
+}
+
+console.log(powersOfTwo(4))
+
+
+function last(x) {
+  return x.split(' ').sort((a, b) => {
+    if (a[a.length - 1] > b[b.length - 1]) {
+      return 1
+    } else if (a[a.length - 1] < b[b.length - 1]) {
+      return -1
+    }
+    return 0
+  })
+}
+
+console.log(last('man i need a taxi up to ubud'))
+
+
+
+const multiplyAll = (arr) => (n) => arr.map((int) => int * n)
+console.log(multiplyAll([1, 2, 3])(2))
+
+
+
+function incrementer(nums) {
+  const result = []
+  for (let i = 0; i < nums.length; i++) {
+    const incrementedDigit = (nums[i] + i + 1) % 10
+    result.push(incrementedDigit)
+  }
+  return result
+}
+
+console.log(incrementer([4, 6, 7, 1, 3]))
+
 
 */
