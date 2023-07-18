@@ -4056,4 +4056,39 @@ function incrementer(nums) {
 console.log(incrementer([4, 6, 7, 1, 3]))
 
 
+
+
+
+function calculate(num1, operation, num2) {
+  if (operation === 'm' || operation === 'w') return null
+  if (operation === '+') return num1 + num2
+  if (operation === '-') return num1 - num2
+  if (operation === '*') return num1 * num2
+  if (operation === '/') {
+    if (num2 !== 0) return num1 / num2
+    else return null
+  }
+}
+
+console.log(calculate(3.2, '+', 8))
+console.log(calculate(3.2, '-', 8))
+console.log(calculate(3.2, '*', 8))
+console.log(calculate(3.2, '/', 8))
+console.log(calculate(3.2, 'm', 8))
+
+
+function containAllRots(strng, arr) {
+  for (let i = 0; i < strng.length; i++) {
+    if (arr.indexOf(strng.slice(i) + strng.slice(0, i)) === -1) {
+      return false
+    }
+  }
+  return true
+}
+
+console.log(
+  containAllRots('bsjq', ['bsjq', 'qbsj', 'sjqb', 'twZNsslC', 'jqbs']),
+)
+
+
 */
