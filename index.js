@@ -4185,4 +4185,123 @@ const JohnsBMI = johnsWeight / johnsHeight ** 2
 console.log(MarksBMI)
 console.log(JohnsBMI)
 
+
+const firstName = 'Jonas'
+const job = 'teacher'
+const birthYear = 1991
+const yaer = 2037
+
+const jonas =
+  "I'm " + firstName + ', a ' + (yaer - birthYear) + ' years old ' + job + ' !'
+
+console.log(jonas)
+
+const jonasNew = `I'm ${firstName}, a ${yaer - birthYear} years old ${job} !`
+
+console.log(jonasNew)
+
+console.log(`Just a regular string...`)
+
+
+const age = 15
+const isOldEnough = age >= 18
+
+if (isOldEnough) {
+  console.log('Sarah can start driving license 🚗')
+} else {
+  const yearsLeft = 18 - age
+  console.log(`Sarah is too young, Wait another ${yearsLeft} years 😊`)
+}
+
+const birthYear = 1991
+
+let century
+if (birthYear <= 2000) {
+  century = 20
+} else {
+  century = 21
+}
+
+console.log(century)
+
+// type conversion
+const inputYear = '1991'
+console.log(Number(inputYear), inputYear)
+console.log(Number(inputYear) + 18)
+
+console.log(String(23))
+
+// type coercion
+console.log('I am ' + 23 + ' years old')
+console.log('23' - '10' - 3)
+console.log('23' * '2')
+
+
+// 5 falsy values: 0, '', undefined, null, NaN
+
+console.log(Boolean(0))
+console.log(Boolean(undefined))
+console.log(Boolean(''))
+console.log(Boolean(null))
+console.log(Boolean(NaN))
+
+const money = 0
+if (money) {
+  console.log('do not spend it all')
+} else {
+  console.log('You should get a job!')
+}
+
+let height = 0
+if (height) {
+  console.log('YAY! Height is defined')
+} else {
+  console.log('Height is UNDEFINED')
+}
+
+const age = '18'
+if (age === 18) console.log('You just became an adult (strict)')
+if (age == 18) console.log('You just became an adult (loose)')
+
+const favorite = Number(prompt('What is your favorite number ?'))
+
+console.log(favorite)
+
+if (favorite === 23) {
+  console.log('Cool! 23 is an amazing number!')
+} else if (favorite === 7) {
+  console.log('Cool! 7 is an amazing number!')
+} else {
+  console.log('Number is not 23 or 7')
+}
+
+if (favorite !== 23) console.log('why not the 23 ?')
+
+
+const hasDriversLicense = true // A
+const hasGoodVision = true // B
+
+console.log(hasDriversLicense && hasGoodVision)
+console.log(hasDriversLicense || hasGoodVision)
+console.log(!hasDriversLicense)
+
+if (hasDriversLicense && hasGoodVision) {
+  console.log('Sarah is able to drive')
+} else {
+  console.log('Someone else should drive...')
+}
+
+const isTired = false // C
+console.log(hasDriversLicense && hasGoodVision && isTired)
+
+
+if (hasDriversLicense && hasGoodVision && !isTired) {
+  console.log('Sarah is able to drive')
+} else {
+  console.log('Someone else should drive...')
+}
+
+
+
+
 */
