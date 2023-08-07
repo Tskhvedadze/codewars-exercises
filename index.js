@@ -4302,6 +4302,146 @@ if (hasDriversLicense && hasGoodVision && !isTired) {
 }
 
 
+const day = 'monday'
+
+switch (day) {
+  case 'monday': // day === 'monday'
+    console.log('Plan course structure')
+    console.log('Go to coding meetup')
+    break
+  case 'tuesday':
+    console.log('Prepare theory videos')
+    break
+  case 'wednesday':
+  case 'thursday':
+    console.log('Write code examples')
+    break
+  case 'friday':
+    console.log('Record videos')
+    break
+  case 'saturday':
+  case 'sunday':
+    console.log('Enjoy the weekend ')
+    break
+  default:
+    console.log('Not a valid day!')
+}
+
+if (day === 'monday') {
+  console.log('Plan course structure')
+  console.log('Go to coding meetup')
+} else if (day === 'tuesday') {
+  console.log('Prepare theory videos')
+} else if (day === 'wednesday' || day === 'thursday') {
+  console.log('Write code examples')
+} else if (day === 'friday') {
+  console.log('Record videos')
+} else if (day === 'saturday ' || day === 'sunday') {
+  console.log('Enjoy the weekend ')
+} else {
+  console.log('Not a valid day!')
+}
+
+const age = 15
+age >= 18
+  ? console.log('I like to drink wine 🍷')
+  : console.log('I like to drink water 💧')
+
+const drink = age >= 18 ? 'wine 🍷' : 'water 💧'
+console.log(drink)
+
+let drink2
+if (age >= 18) {
+  drink2 = 'wine 🍷'
+} else {
+  drink2 = 'water 💧'
+}
+console.log(drink2)
+
+console.log(`I like to drink ${age >= 18 ? 'wine 🍷' : 'water 💧'}`)
+
+
+const bill = 275
+const tip = bill >= 50 && bill <= 300 ? (bill / 100) * 15 : (bill / 100) * 20
+
+console.log(
+  `The bill was ${bill}, the tip was ${tip}, and the total value ${bill + tip}`,
+)
+
+
+let hasDriversicense = false
+const passTest = true
+
+if (passTest) hasDriversicense = true
+if (hasDriversicense) console.log('I can drive 🚗')
+
+
+function logger() {
+  console.log('My name ise Jonas')
+}
+
+logger()
+logger()
+logger()
+
+function fruitProcessor(apples, oranges) {
+  console.log(apples, oranges)
+  const juice = `Juice with ${apples} apples and ${oranges} oranges.`
+  return juice
+}
+
+const appleJuice = fruitProcessor(5, 0)
+console.log(appleJuice)
+console.log(fruitProcessor(5, 0))
+
+const appleOrangeJuice = fruitProcessor(2, 4)
+console.log(appleOrangeJuice)
+
+
+function calcAge1(birthYear) {
+  return 2037 - birthYear
+}
+
+const age1 = calcAge1(1991)
+
+const calcAge2 = function (birthYear) {
+  return 2037 - birthYear
+}
+
+const age2 = calcAge2(1991)
+console.log(age1, age2)
+
+
+// Arrow Function
+const calcAge3 = (birthYear) => 2037 - birthYear
+const age3 = calcAge3(1991)
+console.log(age3)
+
+const yearsUntilRetirement = (birthYear, firstName) => {
+  const age = 2037 - birthYear
+  const retirment = 65 - age
+  // return retirment
+  return `${firstName} retires in ${retirment} years`
+}
+
+console.log(yearsUntilRetirement(1991, 'Jonas'))
+console.log(yearsUntilRetirement(1980, 'Bob'))
+
+
+function cutFruitPieces(fruit) {
+  return fruit * 4
+}
+
+function fruitProcessor(apples, oranges) {
+  const applePieces = cutFruitPieces(apples)
+  const orangePieces = cutFruitPieces(oranges)
+
+  const juice = `Juice with ${applePieces} piece of apples and ${orangePieces} piece of orange.`
+  return juice
+}
+
+console.log(fruitProcessor(2, 3))
+
 
 
 */
