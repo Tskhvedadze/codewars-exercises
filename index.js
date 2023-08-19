@@ -4657,6 +4657,90 @@ function countBy(x, n) {
 console.log(countBy(1, 10))
 console.log(countBy(2, 5))
 
+const flattenAndSort = (array) => array.flat().sort((a, b) => a - b)
 
+console.log(
+    flattenAndSort([
+        [3, 2, 1],
+        [7, 9, 8],
+        [6, 4, 5],
+    ]),
+)
+
+
+const alphabetPosition = function (text) {
+    let result = ''
+    for (let i = 0; i < text.length; i++) {
+        let code = text.toUpperCase().charCodeAt(i)
+        if (code > 64 && code < 91) {
+            result += code - 64 + ' '
+        }
+    }
+    return result.slice(0, result.length)
+}
+
+console.log(alphabetPosition("The sunset sets at twelve o' clock."))
+
+
+const isSquare = function (x) {
+    return Math.sqrt(x) % 1 === 0
+}
+
+const divisorsOf = function (x) {
+    const divs = []
+
+    for (let j = 1; j <= x; j++) {
+        if (x % j === 0) {
+            divs.push(j)
+        }
+    }
+    return divs
+}
+
+const listSquared = function (m, n) {
+    let res = []
+    for (let i = m; i <= n; i++) {
+        const divs = divisorsOf(i)
+
+        const sumOfSquaredDivs = divs.reduce((acc, cur) => (acc += cur ** 2), 0)
+
+        if (isSquare(sumOfSquaredDivs)) {
+            res.push([i, sumOfSquaredDivs])
+        }
+    }
+
+    return res
+}
+
+console.log(listSquared(1, 250))
+// console.log(listSquared(42, 250))
+
+
+
+function doubleChar(str) {
+    return str
+        .split('')
+        .map((v) => v + v)
+        .join('')
+}
+
+// console.log(doubleChar('abcd'))
+console.log(doubleChar('Adidas'))
+
+
+
+const towerBuilder = function (nFloors) {
+    let space,
+        star,
+        tower = []
+
+    for (let i = 1; i <= nFloors; i++) {
+        space = ' '.repeat(nFloors - i)
+        star = '*'.repeat(2 * i - 1)
+        tower.push(`${space}${star}${space}`)
+    }
+
+    return tower
+}
 
 */
