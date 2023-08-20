@@ -4743,4 +4743,35 @@ const towerBuilder = function (nFloors) {
     return tower
 }
 
+
+const getASCII = (c) => c.charCodeAt()
+
+console.log(getASCII('A'))
+
+
+
+const add = (n) => (i) => i + n
+
+console.log(add(1)(3))
+
+
+
+const langs = ['hello', 'ciao', 'salut', 'hallo', 'hola', 'ahoj', 'czesc']
+
+function validateHello(greetings) {
+  let res = false
+
+  for (let i = 0; i < langs.length; i++) {
+    const strToLower = greetings.toLowerCase()
+    if (strToLower.includes(langs[i])) res = true
+  }
+
+  return res
+}
+
+console.log(validateHello('ahoj'))
+console.log(validateHello('meh'))
+console.log(validateHello('ciao'))
+
+
 */
