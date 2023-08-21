@@ -4774,4 +4774,40 @@ console.log(validateHello('meh'))
 console.log(validateHello('ciao'))
 
 
+
+function reverse(string) {
+  return string.split(' ').reverse().join(' ')
+}
+
+console.log(reverse('I am an expert at this'))
+
+
+class Person {
+  constructor(name, age) {
+    this.name = name
+    this.age = age
+  }
+
+  get info() {
+    return `${this.name}s age is ${this.age}`
+  }
+}
+
+const john = new Person('John', 34)
+console.log(john.getInfo)
+
+
+
+String.prototype.toAlternatingCase = function () {
+  return this.split('')
+    .map((a) => (a === a.toUpperCase() ? a.toLowerCase() : a.toUpperCase()))
+    .join('')
+}
+
+console.log('hello world'.toAlternatingCase())
+console.log('HELLO WORLD'.toAlternatingCase())
+console.log('HeLLo WoRLD'.toAlternatingCase())
+
+
+
 */
