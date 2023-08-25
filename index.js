@@ -4811,3 +4811,41 @@ console.log('HeLLo WoRLD'.toAlternatingCase())
 
 
 */
+
+const longestConsec = function (strArr, k) {
+  let result = ''
+  let maxLength = 0
+  if (k <= 0 || k > strArr.length) {
+    return result
+  }
+  for (let i = 0; i <= strArr.length - k; i++) {
+    let currentSequence = strArr.slice(i, i + k).join('')
+    let currentLength = currentSequence.length
+    if (currentLength > maxLength) {
+      maxLength = currentLength
+      result = currentSequence
+    }
+  }
+  return result
+}
+
+// prettier-ignore
+console.log(longestConsec(["zone", "abigail", "theta", "form", "libe", "zas"], 2));
+// prettier-ignore
+console.log(longestConsec(["ejjjjmmtthh", "zxxuueeg", "aanlljrrrxx", "dqqqaaabbb", "oocccffuucccjjjkkkjyyyeehh"], 1));
+
+const twoSort = function (s) {
+  let result = ''
+  const firstElement = s.sort()[0]
+
+  for (let i = 0; i < firstElement.length; i++) {
+    result +=
+      i === firstElement.length - 1 ? firstElement[i] : firstElement[i] + '***'
+  }
+  return result
+}
+
+// prettier-ignore
+console.log(twoSort(["bitcoin", "take", "over", "the", "world", "maybe", "who", "knows", "perhaps"]));
+// prettier-ignore
+console.log(twoSort(["turns", "out", "random", "test", "cases", "are", "easier", "than", "writing", "out", "basic", "ones"]));
