@@ -4808,10 +4808,6 @@ console.log('hello world'.toAlternatingCase())
 console.log('HELLO WORLD'.toAlternatingCase())
 console.log('HeLLo WoRLD'.toAlternatingCase())
 
-
-
-*/
-
 const longestConsec = function (strArr, k) {
   let result = ''
   let maxLength = 0
@@ -4849,3 +4845,86 @@ const twoSort = function (s) {
 console.log(twoSort(["bitcoin", "take", "over", "the", "world", "maybe", "who", "knows", "perhaps"]));
 // prettier-ignore
 console.log(twoSort(["turns", "out", "random", "test", "cases", "are", "easier", "than", "writing", "out", "basic", "ones"]));
+
+
+
+
+
+const replace = function (s) {
+    return s.replace(/[aeiou]/gi, '!')
+}
+
+console.log(replace('Hi!'))
+console.log(replace('aeiou'))
+console.log(replace('!Hi! Hi!'))
+
+
+function countSmileys(arr) {
+    let count = 0
+    const smiles = [
+        ':)',
+        ';)',
+        ':D',
+        ';D',
+        ':-D',
+        ':~D',
+        ':-)',
+        ':~)',
+        ';~D',
+        ';~)',
+        ';-D',
+        ';-)',
+    ]
+    if (arr.length)
+        for (const v of arr) {
+            if (smiles.includes(v)) count++
+        }
+    return count
+    return 0
+}
+
+console.log(countSmileys([':D', ':~)', ';~D', ':)']))
+console.log(countSmileys([':)', ':(', ':D', ':O', ':;']))
+console.log(countSmileys([';>', ':oD', ':)', ';)', ':-D', ':oD', ';~)']))
+console.log(countSmileys([]))
+
+const combat = function (health, demage) {
+    return health - demage < 0 ? 0 : health - demage
+}
+
+console.log(combat(100, 5))
+console.log(combat(92, 8))
+console.log(combat(20, 30))
+
+const removeUrlAnchor = function (url) {
+    if (url.includes('#')) return url.slice(0, url.lastIndexOf('#'))
+    return url
+}
+
+console.log(removeUrlAnchor('www.codewars.com#about'))
+console.log(removeUrlAnchor('www.codewars.com/Katas/?page=1#about'))
+console.log(removeUrlAnchor('www.codewars.com/Katas/'))
+
+const isIsogram = function (str) {
+    let isogram = true
+    const lower = str.toLowerCase().split('')
+    for (const [index, word] of lower.entries()) {
+        if (lower.indexOf(word) === index) isogram
+        else isogram = false
+    }
+    return isogram
+}
+
+console.log(isIsogram('Dermatoglyphics')) // true
+console.log(isIsogram('isogram')) // true
+console.log(isIsogram('aba')) // false
+console.log(isIsogram('moOse')) // false
+console.log(isIsogram('isIsogram')) // false
+console.log(isIsogram('')) // true
+
+const sumDigPow = function (a, b) {
+    const eureka = []
+
+
+}
+*/
