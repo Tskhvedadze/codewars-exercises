@@ -4927,4 +4927,100 @@ const sumDigPow = function (a, b) {
 
 
 }
+
+const userNum = parseInt(prompt('გთხოვთ შეიყვანოთ რიცხვი'))
+
+let counter = 0
+for (let i = 1; i <= userNum; i++) {
+    if (userNum % i === 0) counter++
+}
+let prime = ''
+counter === 1
+    ? (prime = `${userNum} არც მარტივია არც შედგენილი `)
+    : counter === 2
+    ? (prime = `${userNum} მარტივი რიცხვია`)
+    : (prime = `${userNum} შედგენილი რიცხვია`)
+
+console.log(prime)
+
+function padIt(str, n) {
+    while (n > 0) {
+        if (n % 2 === 0) {
+            str = str + '*'
+        } else {
+            str = '*' + str
+        }
+        n--
+    }
+    return str
+}
+
+console.log(padIt('a', 1))
+console.log(padIt('a', 2))
+console.log(padIt('a', 3))
+console.log(padIt('a', 5))
+
+
+
+function grabDoll(dolls) {
+    const bag = []
+    for (let i = 0; i < dolls.length; i++) {
+        if (dolls[i] === 'Hello Kitty' || dolls[i] === 'Barbie doll') {
+            bag.push(dolls[i])
+            if (bag.length >= 3) {
+                break
+            }
+            continue
+        }
+    }
+
+    return bag
+}
+
+// prettier-ignore
+console.log(grabDoll(["Mickey Mouse","Barbie doll","Hello Kitty","Hello Kitty","Hello Kitty","Snow white",'Hello Kitty','Hello Kitty',"Barbie doll","Barbie doll","Barbie doll","Barbie doll","Barbie doll"]));
+
+
+// length of the key === 5 => push key
+
+function giveMeFive(obj) {
+    const result = []
+    for (let key in obj) {
+        const element = obj[key]
+        if (key.length === 5) result.push(key)
+        if (element.length === 5) result.push(element)
+    }
+    return result
+}
+
+console.log(giveMeFive({ Our: 'earth', is: 'a', beautyful: 'world' }))
+console.log(
+    giveMeFive({ Ihave: 'enough', money: 'to', buy: 'a', car: 'model' }),
+)
+
+function toHex(n) {
+    let result = n.toString(16)
+    return result.length === 1 ? '0' + result : result
+}
+
+function colorOf(r, g, b) {
+    return `#${toHex(r)}${toHex(g)}${toHex(b)}`
+}
+
+console.log(colorOf(255, 0, 0))
+console.log(colorOf(0, 111, 0))
+console.log(colorOf(1, 2, 3))
+
+
+const howManySmaller = function (arr, n) {
+    let count = 0
+    arr.map((num) => (Number(num.toFixed(2)) < n ? count++ : count))
+    return count
+}
+
+console.log(howManySmaller([1.234, 1.235, 1.228], 1.24))
+console.log(howManySmaller([1.1888, 1.1868, 1.1838], 1.19))
+
+
+
 */
